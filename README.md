@@ -7,70 +7,37 @@ Une extension de navigateur pour améliorer la productivité et maintenir la con
 ```mermaid
 graph TD
     A[Extension Frontend] --> B[Background Service]
-    B --> C[Firebase Backend]
-    A --> D[Chrome Storage]
-    B --> D
-    C --> E[User Data]
-    C --> F[Analytics]
+    B --> D[Chrome Storage]
+    D --> E[User Data]
+    B --> F[Site Blocking]
+    A --> G[UI Components]
 ```
 
-## Structure des données
+## Roadmap v2 🗺️
 
-```mermaid
-erDiagram
-    USER ||--o{ SESSION : has
-    USER {
-        string uid
-        string email
-        object settings
-    }
-    SESSION ||--o{ TASK : contains
-    SESSION {
-        string id
-        timestamp start
-        timestamp end
-        int focusScore
-    }
-    TASK {
-        string id
-        string title
-        boolean completed
-        int duration
-    }
-```
-
-## Roadmap Technique 🗺️
-
-### Phase 1: Core Extension (Sprint 1-2)
-- [ ] Setup Extension Manifest V3
+### Phase 1: Core Backend (Sprint 1)
 - [ ] Background Service Worker
-- [ ] Basic UI Components (React)
 - [ ] Timer Core Logic
-- [ ] Site Blocking Basic
+- [ ] Chrome Storage Setup
+- [ ] Basic Site Blocking
 
-### Phase 2: User Features (Sprint 3-4)
-- [ ] Firebase Integration
-- [ ] User Authentication
-- [ ] Settings Sync
-- [ ] Task Management
-- [ ] Statistics Tracking
+### Phase 2: Basic UI (Sprint 2)
+- [ ] Timer Component
+- [ ] Settings Panel
+- [ ] Task Board v1
+- [ ] Block List Manager
 
-### Phase 3: Advanced Features (Sprint 5-6)
-- [ ] Pomodoro Timer
+### Phase 3: Enhanced Features (Sprint 3)
+- [ ] Pomodoro Logic
+- [ ] Statistics Local
 - [ ] Site Categories
-- [ ] Analytics Dashboard
-- [ ] Performance Metrics
-- [ ] Browser Sync
+- [ ] Settings Sync
 
-### Phase 4: Polish & Deploy (Sprint 7-8)
-- [ ] UI/UX Refinement
-- [ ] Error Handling
-- [ ] Testing Suite
-- [ ] Performance Optimization
-- [ ] Chrome Web Store Prep
+### Phase 4: Firebase & Polish (Sprint 4)
+- [ ] Firebase Setup
+- [ ] User Auth
+- [ ] Cloud Sync
+- [ ] Analytics
+- [ ] Store Release
 
-License
-MIT
-
-Copyright (c) 2025 nabz0r (nabz0r@gmail.com)
-GitHub: https://github.com/nabz0r
+License: MIT
