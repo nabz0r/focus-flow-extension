@@ -1,15 +1,27 @@
-# FocusFlow Extension 🎯
+# 🎯 FocusFlow Extension
 
-Une extension de navigateur pour améliorer la productivité et maintenir la concentration.
+> Une extension de navigateur pour améliorer la productivité et maintenir la concentration.
 
-## Fonctionnalités
+## ✨ Fonctionnalités
 
-- Timer Pomodoro configurable
-- Blocage de sites distractifs
-- Statistiques de focus
-- Multi-navigateur (Chrome, Firefox, Edge)
+- 🕔 Timer Pomodoro configurable
+- 🚫 Blocage de sites distractifs
+- 📈 Statistiques de focus
+- 🌐 Multi-navigateur (Chrome, Firefox, Edge)
 
-## Architecture
+## 📊 État Actuel
+
+| Feature | Status |
+|---------|--------|
+| Timer Core | 🟢 **DONE** |
+| UI Base | 🟢 **DONE** |
+| Site Blocking | 🟢 **DONE** |
+| Notifications | 🟢 **DONE** |
+| Stats | 🟡 TODO |
+| Settings | 🟡 TODO |
+| Tests | 🔴 NOT STARTED |
+
+## 🛠️ Architecture
 
 ```mermaid
 graph TD
@@ -21,7 +33,7 @@ graph TD
     C --> F[Analytics]
 ```
 
-## Structure des données
+## 📑 Structure des données
 
 ```mermaid
 erDiagram
@@ -46,34 +58,28 @@ erDiagram
     }
 ```
 
-## Roadmap v2 🗺️
+## 🗺️ Roadmap v3
 
-### Phase 1: Core Features - En cours ⏳
+### Phase 1: Core Features 🟢
 - [x] Multi-navigateur setup
-- [x] Timer basique
-- [x] UI minimaliste
-- [ ] Service Worker
-- [ ] Blocage de sites
+- [x] Timer basique + UI
+- [x] Service Worker
+- [x] Blocage de sites
+- [x] Notifications
 
-### Phase 2: Améliorations UI
+### Phase 2: Améliorations UX 🟡
 - [ ] Stats & Dashboard
 - [ ] Theme support
-- [ ] Notifications
 - [ ] Import/Export
+- [ ] Raccourcis clavier
 
-### Phase 3: Tests & Polish
+### Phase 3: Tests & Polish 🔴
 - [ ] Tests E2E
 - [ ] Tests unitaires
 - [ ] Documentation API
 - [ ] Store release
 
-## Documentation
-
-- [Installation](./docs/INSTALL.md)
-- [Architecture](./docs/ARCHITECTURE.md)
-- [TODO](./docs/TODO.md)
-
-## Components Structure
+## 💻 Components
 
 ```mermaid
 graph LR
@@ -89,7 +95,20 @@ graph LR
     E --> K[Reports]
 ```
 
-License MIT
+## 📖 Documentation
+
+- [Installation](./docs/INSTALL.md)
+- [Architecture](./docs/ARCHITECTURE.md)
+- [Tasks](./docs/TASKS.md)
+
+## 🔗 Liens Utiles
+
+- 👨‍💻 [Code Source](https://github.com/nabz0r/focus-flow-extension)
+- 📈 [Bug Tracker](https://github.com/nabz0r/focus-flow-extension/issues)
+- 💬 [Discussions](https://github.com/nabz0r/focus-flow-extension/discussions)
+
+---
+
+License: MIT
 
 Copyright (c) 2025 nabz0r (nabz0r@gmail.com)
-GitHub: https://github.com/nabz0r
