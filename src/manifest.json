@@ -3,6 +3,12 @@
   "name": "FocusFlow",
   "version": "1.0",
   "description": "Boost your productivity and focus",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{focusflow@extension.com}",
+      "strict_min_version": "109.0"
+    }
+  },
   "permissions": [
     "storage",
     "tabs",
@@ -10,9 +16,20 @@
     "alarms"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
   }
 }
