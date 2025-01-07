@@ -1,93 +1,86 @@
-# Roadmap & Tasks
+# 📊 Tâches Techniques
 
 ## 1. Core Extension
 
-### Service Worker
-- [ ] Initialisation background service
-  - [ ] System de messaging
-  - [ ] Gestion des états
-  - [ ] Event listeners de base
-  - [ ] Gestion des erreurs
+### Service Worker 🟢
+- [x] Initialisation background service
+- [x] System de messaging
+- [x] Gestion des états
+- [x] Event listeners de base
 
-### Timer Core
-- [ ] Machine à états timer
-  - [ ] États: IDLE, RUNNING, PAUSED
-  - [ ] Gestion précise du temps
-  - [ ] Persistance état
-  - [ ] Calibration temps système
-  - [ ] Fix: Reset après pause
+### Timer Core 🟢
+- [x] Machine à états timer (IDLE, RUNNING, PAUSED)
+- [x] Gestion précise du temps
+- [x] Persistance état timer
+- [x] Calibration temps système
 
-### Site Blocking
-- [ ] Parser URLs/Domains
-  - [ ] Validation format URL
-  - [ ] Matching patterns
-  - [ ] WebRequest interceptor
-  - [ ] Cache DNS/Hosts
+### Site Blocking 🟢
+- [x] Parser URLs/Domains
+- [x] Matching patterns
+- [x] WebRequest interceptor
+- [x] Cache DNS/Hosts
 
-### Storage
-- [ ] Schema validation
-  - [ ] CRUD opérations
-  - [ ] Migration données
-  - [ ] Gestion quota
-  - [ ] Import/Export settings
+### Storage 🟡
+- [x] Schema validation
+- [x] CRUD opérations
+- [ ] Migration données
+- [ ] Gestion quota
 
 ## 2. Front Components
 
-### Timer UI
-- [ ] Display component
-  - [ ] Controls
-  - [ ] Progress circle
-  - [ ] Sound alerts
-  - [ ] Raccourcis clavier
+### Timer UI 🟢
+- [x] Display component
+- [x] Controls component
+- [x] Progress circle
+- [x] Sound alerts
 
-### Site Manager
-- [ ] Liste sites component
-  - [ ] Form ajout/edit
-  - [ ] URL validator
-  - [ ] Batch import/export
-  - [ ] Catégorisation sites
+### Site Manager 🟢
+- [x] Liste sites component
+- [x] Form ajout/edit
+- [x] URL validator
+- [ ] Batch import/export 🟡
 
-### Settings Panel
+### Settings Panel 🟡
 - [ ] Timer config
-  - [ ] Theme selector
-  - [ ] Notifications
-  - [ ] Shortcuts
-  - [ ] Import/Export
+- [ ] Theme selector
+- [ ] Notifications config
+- [ ] Shortcuts manager
 
-### Stats Display
+### Stats Display 🔴
 - [ ] Data aggregator
-  - [ ] Charts renderer
-  - [ ] Filtres/périodes
-  - [ ] Export data
-  - [ ] Thèmes personnalisables
+- [ ] Charts renderer
+- [ ] Filters/périodes
+- [ ] Export données
 
-## 3. Tests & Quality
+## 3. Quality & Tests 🔴
 
-### Unit Tests [Critical]
+### Unit Tests [CRITICAL]
 - [ ] Timer logic tests
-  - [ ] Storage tests
-  - [ ] Components tests
-  - [ ] Utils tests
+- [ ] Storage tests
+- [ ] Components tests
+- [ ] Utils tests
 
-### E2E Tests [Critical]
+### E2E Tests [CRITICAL]
 - [ ] Timer workflow
-  - [ ] Block sites workflow
-  - [ ] Settings workflow
-  - [ ] Stats workflow
+- [ ] Block sites workflow
+- [ ] Settings workflow
+- [ ] Stats workflow
 
-### Performance
+### Performance 🔴
 - [ ] Audit background worker
-  - [ ] Audit React components
-  - [ ] Audit storage
-  - [ ] Memory leaks
+- [ ] Audit React components
+- [ ] Audit storage operations
+- [ ] Audit network calls
 
-### Store Release
+### Browser Stores 🔴
 - [ ] Chrome package
-  - [ ] Firefox package
-  - [ ] Edge package
-  - [ ] Documentation store
+- [ ] Firefox package
+- [ ] Edge package
+- [ ] Documentation store
 
-## Bugs Connus
-- Sites bloqués: validation URL incorrecte
-- Timer: problème de reset après pause
-- Storage: synchronisation lente
+## Légende
+
+- 🟢 = DONE
+- 🟡 = IN PROGRESS/PARTIAL
+- 🔴 = TODO
+- [CRITICAL] = Priorité haute
