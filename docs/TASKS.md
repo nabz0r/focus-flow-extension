@@ -1,79 +1,93 @@
-# Tâches Techniques Détaillées
+# Roadmap & Tasks
 
 ## 1. Core Extension
 
 ### Service Worker
 - [ ] Initialisation background service
-- [ ] System de messaging
-- [ ] Gestion des états
-- [ ] Event listeners de base
+  - [ ] System de messaging
+  - [ ] Gestion des états
+  - [ ] Event listeners de base
+  - [ ] Gestion des erreurs
 
 ### Timer Core
-- [ ] Machine à états timer (IDLE, RUNNING, PAUSED)
-- [ ] Gestion précise du temps
-- [ ] Persistance état timer
-- [ ] Calibration temps système
+- [ ] Machine à états timer
+  - [ ] États: IDLE, RUNNING, PAUSED
+  - [ ] Gestion précise du temps
+  - [ ] Persistance état
+  - [ ] Calibration temps système
+  - [ ] Fix: Reset après pause
 
 ### Site Blocking
 - [ ] Parser URLs/Domains
-- [ ] Matching patterns
-- [ ] WebRequest interceptor
-- [ ] Cache DNS/Hosts
+  - [ ] Validation format URL
+  - [ ] Matching patterns
+  - [ ] WebRequest interceptor
+  - [ ] Cache DNS/Hosts
 
 ### Storage
 - [ ] Schema validation
-- [ ] CRUD opérations
-- [ ] Migration données
-- [ ] Gestion quota
+  - [ ] CRUD opérations
+  - [ ] Migration données
+  - [ ] Gestion quota
+  - [ ] Import/Export settings
 
 ## 2. Front Components
 
 ### Timer UI
 - [ ] Display component
-- [ ] Controls component
-- [ ] Progress circle
-- [ ] Sound alerts
+  - [ ] Controls
+  - [ ] Progress circle
+  - [ ] Sound alerts
+  - [ ] Raccourcis clavier
 
 ### Site Manager
 - [ ] Liste sites component
-- [ ] Form ajout/edit
-- [ ] URL validator
-- [ ] Batch import/export
+  - [ ] Form ajout/edit
+  - [ ] URL validator
+  - [ ] Batch import/export
+  - [ ] Catégorisation sites
 
 ### Settings Panel
 - [ ] Timer config
-- [ ] Theme selector
-- [ ] Notifications config
-- [ ] Shortcuts manager
+  - [ ] Theme selector
+  - [ ] Notifications
+  - [ ] Shortcuts
+  - [ ] Import/Export
 
 ### Stats Display
 - [ ] Data aggregator
-- [ ] Charts renderer
-- [ ] Filters/périodes
-- [ ] Export données
+  - [ ] Charts renderer
+  - [ ] Filtres/périodes
+  - [ ] Export data
+  - [ ] Thèmes personnalisables
 
-## 3. Quality & Tests
+## 3. Tests & Quality
 
-### Unit Tests
+### Unit Tests [Critical]
 - [ ] Timer logic tests
-- [ ] Storage tests
-- [ ] Components tests
-- [ ] Utils tests
+  - [ ] Storage tests
+  - [ ] Components tests
+  - [ ] Utils tests
 
-### E2E Tests
+### E2E Tests [Critical]
 - [ ] Timer workflow
-- [ ] Block sites workflow
-- [ ] Settings workflow
-- [ ] Stats workflow
+  - [ ] Block sites workflow
+  - [ ] Settings workflow
+  - [ ] Stats workflow
 
 ### Performance
 - [ ] Audit background worker
-- [ ] Audit React components
-- [ ] Audit storage operations
-- [ ] Audit network calls
+  - [ ] Audit React components
+  - [ ] Audit storage
+  - [ ] Memory leaks
 
-### Browser Stores
+### Store Release
 - [ ] Chrome package
-- [ ] Firefox package
-- [ ] Edge package
-- [ ] Documentation store
+  - [ ] Firefox package
+  - [ ] Edge package
+  - [ ] Documentation store
+
+## Bugs Connus
+- Sites bloqués: validation URL incorrecte
+- Timer: problème de reset après pause
+- Storage: synchronisation lente
