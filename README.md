@@ -2,6 +2,13 @@
 
 Une extension de navigateur pour améliorer la productivité et maintenir la concentration.
 
+## Fonctionnalités
+
+- Timer Pomodoro configurable
+- Blocage de sites distractifs
+- Statistiques de focus
+- Multi-navigateur (Chrome, Firefox, Edge)
+
 ## Architecture
 
 ```mermaid
@@ -39,32 +46,32 @@ erDiagram
     }
 ```
 
-## Roadmap Technique 🗺️
+## Roadmap v2 🗺️
 
-### Phase 1: Core Backend (Sprint 1)
-- [ ] Background Service Worker
-- [ ] Timer Core Logic
-- [ ] Chrome Storage Setup
-- [ ] Basic Site Blocking
+### Phase 1: Core Features - En cours ⏳
+- [x] Multi-navigateur setup
+- [x] Timer basique
+- [x] UI minimaliste
+- [ ] Service Worker
+- [ ] Blocage de sites
 
-### Phase 2: Basic UI (Sprint 2)
-- [ ] Timer Component
-- [ ] Settings Panel
-- [ ] Task Board v1
-- [ ] Block List Manager
+### Phase 2: Améliorations UI
+- [ ] Stats & Dashboard
+- [ ] Theme support
+- [ ] Notifications
+- [ ] Import/Export
 
-### Phase 3: Enhanced Features (Sprint 3)
-- [ ] Pomodoro Logic
-- [ ] Statistics Local
-- [ ] Site Categories
-- [ ] Settings Sync
+### Phase 3: Tests & Polish
+- [ ] Tests E2E
+- [ ] Tests unitaires
+- [ ] Documentation API
+- [ ] Store release
 
-### Phase 4: Firebase & Polish (Sprint 4)
-- [ ] Firebase Setup
-- [ ] User Auth
-- [ ] Cloud Sync
-- [ ] Analytics
-- [ ] Store Release
+## Documentation
+
+- [Installation](./docs/INSTALL.md)
+- [Architecture](./docs/ARCHITECTURE.md)
+- [TODO](./docs/TODO.md)
 
 ## Components Structure
 
