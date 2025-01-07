@@ -7,13 +7,39 @@ Une extension de navigateur pour améliorer la productivité et maintenir la con
 ```mermaid
 graph TD
     A[Extension Frontend] --> B[Background Service]
-    B --> D[Chrome Storage]
-    D --> E[User Data]
-    B --> F[Site Blocking]
-    A --> G[UI Components]
+    B --> C[Firebase Backend]
+    A --> D[Chrome Storage]
+    B --> D
+    C --> E[User Data]
+    C --> F[Analytics]
 ```
 
-## Roadmap v2 🗺️
+## Structure des données
+
+```mermaid
+erDiagram
+    USER ||--o{ SESSION : has
+    USER {
+        string uid
+        string email
+        object settings
+    }
+    SESSION ||--o{ TASK : contains
+    SESSION {
+        string id
+        timestamp start
+        timestamp end
+        int focusScore
+    }
+    TASK {
+        string id
+        string title
+        boolean completed
+        int duration
+    }
+```
+
+## Roadmap Technique 🗺️
 
 ### Phase 1: Core Backend (Sprint 1)
 - [ ] Background Service Worker
@@ -40,4 +66,23 @@ graph TD
 - [ ] Analytics
 - [ ] Store Release
 
-License: MIT
+## Components Structure
+
+```mermaid
+graph LR
+    A[App] --> B[Timer]
+    A --> C[TaskList]
+    A --> D[Settings]
+    A --> E[Stats]
+    B --> F[TimerControls]
+    B --> G[TimerDisplay]
+    C --> H[TaskItem]
+    C --> I[TaskForm]
+    E --> J[Charts]
+    E --> K[Reports]
+```
+
+License MIT
+
+Copyright (c) 2025 nabz0r (nabz0r@gmail.com)
+GitHub: https://github.com/nabz0r
