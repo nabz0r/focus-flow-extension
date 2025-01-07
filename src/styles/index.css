@@ -1,0 +1,20 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styles */
+.timer-display {
+  @apply text-4xl font-bold text-center py-4;
+}
+
+.timer-controls {
+  @apply flex justify-center gap-4;
+}
+
+.task-list {
+  @apply p-4;
+}
+
+.settings {
+  @apply p-4 space-y-4;
+}
