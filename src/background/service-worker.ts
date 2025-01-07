@@ -1,11 +1,16 @@
+import { SiteBlocker } from './site-blocker';
+
 class FocusFlowWorker {
+  private siteBlocker: SiteBlocker;
+
   constructor() {
+    this.siteBlocker = new SiteBlocker();
     this.initListeners();
   }
 
   private initListeners() {
     chrome.runtime.onInstalled.addListener(this.handleInstall);
-    chrome.tabs.onUpdated.addListener(this.handleTabUpdate);
+    chrome.alarms.onAlarm.addListener(this.handleAlarm);
   }
 
   private handleInstall = (details: chrome.runtime.InstalledDetails) => {
@@ -14,21 +19,28 @@ class FocusFlowWorker {
     }
   }
 
-  private handleTabUpdate = (
-    tabId: number,
-    changeInfo: chrome.tabs.TabChangeInfo,
-    tab: chrome.tabs.Tab
-  ) => {
-    // Tab tracking logic
+  private handleAlarm = (alarm: chrome.alarms.Alarm) => {
+    if (alarm.name === 'focusSession') {
+      this.notifySessionEnd();
+    }
   }
 
-  private initStorage() {
+  private async initStorage() {
     const defaultSettings = {
       timer: 25,
       break: 5,
-      sites: []
+      blockedSites: []
     };
-    chrome.storage.local.set({ settings: defaultSettings });
+    await chrome.storage.local.set({ settings: defaultSettings });
+  }
+
+  private async notifySessionEnd() {
+    await chrome.notifications.create('sessionEnd', {
+      type: 'basic',
+      iconUrl: 'assets/icon128.png',
+      title: 'Focus Session Complete!',
+      message: 'Time for a break'
+    });
   }
 }
 
