@@ -1,23 +1,28 @@
 {
   "name": "focus-flow-extension",
   "version": "1.0.0",
-  "description": "A browser extension for improving productivity",
   "scripts": {
-    "dev": "webpack --mode development --watch",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
   },
   "dependencies": {
-    "firebase": "^10.x",
-    "react": "^18.x",
-    "react-dom": "^18.x",
-    "tailwindcss": "^3.x"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.x",
-    "@types/react": "^18.x",
-    "@types/react-dom": "^18.x",
-    "typescript": "^5.x",
-    "webpack": "^5.x",
-    "webpack-cli": "^5.x"
+    "@types/chrome": "^0.0.260",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^6.9.1",
+    "html-webpack-plugin": "^5.6.0",
+    "postcss": "^8.4.33",
+    "postcss-loader": "^8.0.0",
+    "style-loader": "^3.3.4",
+    "tailwindcss": "^3.4.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }

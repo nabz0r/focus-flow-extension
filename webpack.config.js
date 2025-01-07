@@ -1,14 +1,16 @@
 const path = require('path');
-const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
     popup: './src/popup.tsx',
-    background: './src/background.js'
+    background: './src/background/service-worker.ts'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    clean: true
   },
   module: {
     rules: [
@@ -23,10 +25,20 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/popup.html',
+      filename: 'popup.html',
+      chunks: ['popup']
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/manifest.json', to: 'manifest.json' },
+        { from: 'src/assets', to: 'assets' }
+      ]
+    })
+  ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
-  },
-  plugins: [
-    new Dotenv()
-  ]
+  }
 };
