@@ -1,0 +1,27 @@
+.timer {
+  @apply flex flex-col items-center p-4;
+}
+
+.timer-display {
+  @apply text-5xl font-bold mb-4;
+}
+
+.timer-controls {
+  @apply flex gap-4;
+}
+
+.timer-button {
+  @apply px-4 py-2 rounded-lg text-white transition-colors;
+}
+
+.timer-button-start {
+  @apply bg-green-500 hover:bg-green-600;
+}
+
+.timer-button-pause {
+  @apply bg-yellow-500 hover:bg-yellow-600;
+}
+
+.timer-button-reset {
+  @apply bg-red-500 hover:bg-red-600;
+}
