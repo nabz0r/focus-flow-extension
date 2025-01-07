@@ -1,32 +1,50 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { TimerBasic } from './components/Timer/TimerBasic';
-import { BlockedSites } from './components/Sites/BlockedSites';
+import { Timer } from './components/Timer/Timer';
+import { BlockList } from './components/Sites/BlockList';
 
 const Popup = () => {
   const [activeTab, setActiveTab] = useState('timer');
 
+  const tabs = [
+    { id: 'timer', label: 'Timer' },
+    { id: 'sites', label: 'Block Sites' }
+  ];
+
   return (
-    <div className="w-96 min-h-[400px]">
-      <nav className="flex border-b">
-        <button
-          onClick={() => setActiveTab('timer')}
-          className={`px-4 py-2 ${activeTab === 'timer' ? 'border-b-2 border-blue-500' : ''}`}
-        >
-          Timer
-        </button>
-        <button
-          onClick={() => setActiveTab('sites')}
-          className={`px-4 py-2 ${activeTab === 'sites' ? 'border-b-2 border-blue-500' : ''}`}
-        >
-          Blocked Sites
-        </button>
+    <div className="w-[400px] min-h-[500px] bg-white">
+      <nav className="flex border-b bg-gray-50">
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`
+              flex-1 py-3 px-4 text-sm font-medium
+              ${activeTab === tab.id
+                ? 'border-b-2 border-blue-500 text-blue-600'
+                : 'text-gray-500 hover:text-gray-700'
+              }
+            `}
+          >
+            {tab.label}
+          </button>
+        ))}
       </nav>
 
-      <div className="p-4">
-        {activeTab === 'timer' && <TimerBasic />}
-        {activeTab === 'sites' && <BlockedSites />}
-      </div>
+      <main className="p-4">
+        {activeTab === 'timer' ? (
+          <Timer />
+        ) : (
+          <BlockList 
+            onToggle={(enabled) => {
+              chrome.runtime.sendMessage({
+                type: 'TOGGLE_BLOCKING',
+                enabled
+              });
+            }}
+          />
+        )}
+      </main>
     </div>
   );
 };
