@@ -1,19 +1,73 @@
-# Architecture FocusFlow
+# 🛠️ Architecture FocusFlow
 
 ## Structure du Projet
 
 ```
 /src
-  /assets        - Icons et ressources
-  /background    - Service worker & blocage de sites
-  /components    - Composants React
-    /Timer       - Gestion du timer
-    /Sites       - Gestion des sites bloqués
-  /utils         - Utilitaires partagés
-  manifest.json  - Configuration navigateurs
+  ├── /assets        - Icons & resources
+  ├── /background    - Core logic
+  │   ├── service-worker.ts
+  │   ├── timer-core.ts    ✅
+  │   ├── site-blocker.ts  ✅
+  │   └── notifications.ts ✅
+  ├── /components    - React UI
+  │   ├── /Timer          ✅
+  │   ├── /Sites          ✅
+  │   ├── /Stats          ⏳
+  │   └── /Settings       ⏳
+  └── /utils         - Helpers
 ```
 
-## Flux de Données
+## Core Services
+
+### Timer Core ✅
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE
+    IDLE --> RUNNING: start
+    RUNNING --> PAUSED: pause
+    RUNNING --> BREAK: complete
+    PAUSED --> RUNNING: resume
+    BREAK --> IDLE: complete
+```
+
+### Site Blocker ✅
+```mermaid
+flowchart LR
+    A[WebRequest] --> B{Is Enabled?}
+    B -->|Yes| C{Check Domain}
+    B -->|No| D[Allow]
+    C -->|Blocked| E[Show Block Page]
+    C -->|Allowed| D
+```
+
+### Notifications ✅
+```mermaid
+flowchart TD
+    A[Event] --> B{Notifications
+Enabled?}
+    B -->|Yes| C[Create Notification]
+    C --> D{Sound
+Enabled?}
+    D -->|Yes| E[Play Sound]
+```
+
+## Storage
+
+### Chrome Storage Schema
+```typescript
+interface Storage {
+  settings: {
+    timer: TimerConfig;
+    notifications: NotificationSettings;
+    theme: ThemeConfig;
+  };
+  blockedSites: string[];
+  sessions: Session[];
+}
+```
+
+## Flux de données
 
 ```mermaid
 graph TD
@@ -23,13 +77,7 @@ graph TD
     A --> E[User Settings]
 ```
 
-## État de l'Application
-
-- Timer state: service worker
-- Settings: chrome.storage.local
-- Blocked sites: chrome.storage.local
-
-## Communication
-
-- UI → Background: chrome.runtime.sendMessage
-- Background → UI: chrome.runtime.onMessage
+## Légende
+- ✅ Implémenté
+- ⏳ En cours
+- ❌ Non commencé
