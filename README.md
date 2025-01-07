@@ -68,3 +68,9 @@ erDiagram
 - [ ] Testing Suite
 - [ ] Performance Optimization
 - [ ] Chrome Web Store Prep
+
+License
+MIT
+
+Copyright (c) 2025 nabz0r (nabz0r@gmail.com)
+GitHub: https://github.com/nabz0r
