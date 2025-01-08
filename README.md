@@ -8,33 +8,85 @@
 - 🚫 Blocage de sites distractifs
 - 📈 Statistiques de focus
 - 🌐 Multi-navigateur (Chrome, Firefox, Edge)
+- 🔥 Synchronisation Firebase
+- 👥 Multi-utilisateurs avec auth
+- 📊 Analytics temps réel
 
 ## 📊 État Actuel
 
-| Feature | Status |
-|---------|--------|
-| Timer Core | 🟢 **DONE** |
-| UI Base | 🟢 **DONE** |
-| Site Blocking | 🟢 **DONE** |
-| Notifications | 🟢 **DONE** |
-| Stats | 🟡 TODO |
-| Settings | 🟡 TODO |
-| Tests | 🔴 NOT STARTED |
+| Feature | Status | Notes |
+|---------|---------|-------|
+| Timer Core | 🟢 **DONE** | Complet |
+| UI Base | 🟢 **DONE** | React + TailwindCSS |
+| Site Blocking | 🟢 **DONE** | Pattern matching |
+| Notifications | 🟢 **DONE** | Custom sounds |
+| Firebase | 🟡 IN PROGRESS | Auth + Firestore |
+| Stats | 🟡 IN PROGRESS | Real-time sync |
+| Settings | 🟡 IN PROGRESS | Multi-device |
+| Tests | 🔴 NOT STARTED | Critique |
 
-## 🛠️ Architecture
+## 🛠️ Architecture v2
 
+### System Architecture
 ```mermaid
-graph TD
-    A[Extension Frontend] --> B[Background Service]
-    B --> C[Firebase Backend]
-    A --> D[Chrome Storage]
-    B --> D
-    C --> E[User Data]
-    C --> F[Analytics]
+graph TB
+  subgraph Frontend [Frontend Layer]
+    P[Popup UI] --> C[Components]
+    C --> H[Hooks]
+    H --> S[Services]
+  end
+
+  subgraph Backend [Backend Layer]
+    SW[Service Worker] --> FB[Firebase Service]
+    SW --> CS[Chrome Storage]
+    FB --> Auth[Authentication]
+    FB --> FS[Firestore]
+    FB --> AN[Analytics]
+  end
+
+  subgraph Data [Data Layer]
+    FS --> Users
+    FS --> Sessions
+    FS --> Tasks
+    CS --> LocalCache
+  end
+
+  Frontend --> Backend
+  Backend --> Data
 ```
 
-## 📑 Structure des données
+### Component Architecture
+```mermaid
+graph TB
+  subgraph Core [Core Components]
+    App --> Timer
+    App --> TaskList
+    App --> Stats
+    App --> Settings
+  end
 
+  subgraph Timer [Timer Components]
+    Timer --> TimerDisplay
+    Timer --> TimerControls
+    Timer --> TimerStats
+  end
+
+  subgraph Tasks [Task Components]
+    TaskList --> TaskItem
+    TaskList --> TaskForm
+    TaskList --> TaskFilters
+  end
+
+  subgraph Stats [Statistics Components]
+    Stats --> DailyStats
+    Stats --> WeeklyStats
+    Stats --> Charts
+  end
+```
+
+## 📑 Data Structure
+
+### Firebase Schema
 ```mermaid
 erDiagram
     USER ||--o{ SESSION : has
@@ -42,40 +94,52 @@ erDiagram
         string uid
         string email
         object settings
+        date lastActive
     }
     SESSION ||--o{ TASK : contains
     SESSION {
         string id
-        timestamp start
-        timestamp end
-        int focusScore
+        date startTime
+        date endTime
+        enum type
+        bool completed
     }
     TASK {
         string id
         string title
-        boolean completed
-        int duration
+        bool completed
+        int pomodoros
+        array tags
     }
 ```
 
-## 🗺️ Roadmap v3
+## 🗺️ Roadmap v4
 
-### Phase 1: Core Features 🟢
+### Phase 1: Firebase Integration 🟡
+- [x] Setup projet Firebase
+- [x] Configuration auth
+- [x] Schema Firestore
+- [ ] Migration données
+- [ ] Tests sync
+
+### Phase 2: Core Features 🟢
 - [x] Multi-navigateur setup
 - [x] Timer basique + UI
 - [x] Service Worker
 - [x] Blocage de sites
 - [x] Notifications
 
-### Phase 2: Améliorations UX 🟡
+### Phase 3: Améliorations UX 🟡
 - [ ] Stats & Dashboard
 - [ ] Theme support
 - [ ] Import/Export
 - [ ] Raccourcis clavier
+- [ ] Sync multi-device
 
-### Phase 3: Tests & Polish 🔴
+### Phase 4: Tests & Polish 🔴
 - [ ] Tests E2E
 - [ ] Tests unitaires
+- [ ] Tests Firebase
 - [ ] Documentation API
 - [ ] Store release
 
@@ -87,12 +151,15 @@ graph LR
     A --> C[TaskList]
     A --> D[Settings]
     A --> E[Stats]
-    B --> F[TimerControls]
-    B --> G[TimerDisplay]
-    C --> H[TaskItem]
-    C --> I[TaskForm]
-    E --> J[Charts]
-    E --> K[Reports]
+    A --> F[Auth]
+    B --> G[TimerControls]
+    B --> H[TimerDisplay]
+    C --> I[TaskItem]
+    C --> J[TaskForm]
+    E --> K[Charts]
+    E --> L[Reports]
+    F --> M[Login]
+    F --> N[Register]
 ```
 
 ## 📖 Documentation
@@ -106,6 +173,27 @@ graph LR
 - 👨‍💻 [Code Source](https://github.com/nabz0r/focus-flow-extension)
 - 📈 [Bug Tracker](https://github.com/nabz0r/focus-flow-extension/issues)
 - 💬 [Discussions](https://github.com/nabz0r/focus-flow-extension/discussions)
+- 🔥 [Firebase Console](https://console.firebase.google.com)
+
+## 🚀 Getting Started
+
+1. Clone et install deps
+```bash
+git clone https://github.com/nabz0r/focus-flow-extension.git
+cd focus-flow-extension
+npm install
+```
+
+2. Firebase setup
+```bash
+firebase login
+firebase init
+```
+
+3. Dev mode
+```bash
+npm run dev
+```
 
 ---
 
