@@ -29,7 +29,8 @@ npm run build
 {
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "recharts": "^2.10.3"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.260",
@@ -80,6 +81,7 @@ npm run build
 
 - Utiliser l'inspecteur d'extension Chrome pour le debug
 - Vérifier les logs dans la console du service worker
+- Utiliser Redux DevTools pour stats tracking
 - Désactiver autres extensions similaires
 
 ## 👮 Troubleshooting
@@ -87,3 +89,4 @@ npm run build
 - **Erreur manifest**: Vérifier la version du manifest.json
 - **Hot reload ne marche pas**: Redémarrer le navigateur
 - **Conflit de ports**: Changer le port dans webpack.config.js
+- **Stats ne s'affichent pas**: Vérifier le storage dans dev tools

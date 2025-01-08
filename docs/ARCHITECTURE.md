@@ -9,11 +9,12 @@
   │   ├── service-worker.ts
   │   ├── timer-core.ts    ✅
   │   ├── site-blocker.ts  ✅
-  │   └── notifications.ts ✅
+  │   ├── notifications.ts ✅
+  │   └── focus-tracker.ts ✅
   ├── /components    - React UI
   │   ├── /Timer          ✅
   │   ├── /Sites          ✅
-  │   ├── /Stats          ⏳
+  │   ├── /Stats          ✅
   │   └── /Settings       ⏳
   └── /utils         - Helpers
 ```
@@ -41,6 +42,17 @@ flowchart LR
     C -->|Allowed| D
 ```
 
+### Stats Tracking ✅
+```mermaid
+flowchart TD
+    A[Session Start] --> B[Track Focus Time]
+    B --> C{Distraction?
+    C -->|Yes| D[Increment Counter]
+    D --> B
+    B --> E[Session End]
+    E --> F[Save Stats]
+```
+
 ### Notifications ✅
 ```mermaid
 flowchart TD
@@ -64,6 +76,18 @@ interface Storage {
   };
   blockedSites: string[];
   sessions: Session[];
+  stats: {
+    sessions: SessionStats[];
+    totalFocusTime: number;
+    sitesBlocked: number;
+  };
+}
+
+interface SessionStats {
+  duration: number;
+  blockedAttempts: number;
+  tasks: string[];
+  timestamp: number;
 }
 ```
 
@@ -74,6 +98,7 @@ graph TD
     A[UI Components] --> B[Background Service]
     B --> C[Chrome Storage]
     B --> D[Site Blocking]
+    B --> F[Stats Tracking]
     A --> E[User Settings]
 ```
 

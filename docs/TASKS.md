@@ -20,6 +20,13 @@
 - [x] WebRequest interceptor
 - [x] Cache DNS/Hosts
 
+### Stats System 🟢
+- [x] Session tracking
+- [x] Stats aggregation
+- [x] Charts & visualizations
+- [x] Time period filtering
+- [ ] Data export 🟡
+
 ### Storage 🟡
 - [x] Schema validation
 - [x] CRUD opérations
@@ -40,17 +47,17 @@
 - [x] URL validator
 - [ ] Batch import/export 🟡
 
+### Stats Display 🟢
+- [x] Data aggregator
+- [x] Charts renderer
+- [x] Filters/périodes
+- [ ] Export données 🟡
+
 ### Settings Panel 🟡
 - [ ] Timer config
 - [ ] Theme selector
 - [ ] Notifications config
 - [ ] Shortcuts manager
-
-### Stats Display 🔴
-- [ ] Data aggregator
-- [ ] Charts renderer
-- [ ] Filters/périodes
-- [ ] Export données
 
 ## 3. Quality & Tests 🔴
 
