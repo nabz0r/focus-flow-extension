@@ -1,6 +1,9 @@
 # 🎯 FocusFlow Extension
 
 > Une extension de navigateur pour améliorer la productivité et maintenir la concentration.
+>
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-nabz0r-yellow?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/nabz0r)
 
 ## ✨ Fonctionnalités
 
